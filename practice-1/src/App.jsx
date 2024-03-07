@@ -19,7 +19,7 @@ function App() {
       price: 5.99,
     },
     {
-      id: 1,
+      id: 3,
       status: "CANCELLED",
       cancellation_reason: "Item not available",
       name: "Item 3",
@@ -58,7 +58,7 @@ function App() {
         </div>
       )}
       {isShownOptionsModal && (
-        <OptionsModal closeOptionsModal={closeOptionsModal} />
+        <OptionsModal closeOptionsModal={closeOptionsModal} items={items} />
       )}
     </>
   );
