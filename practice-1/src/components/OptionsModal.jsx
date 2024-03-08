@@ -13,6 +13,11 @@ const OptionsModal = ({ closeOptionsModal, items }) => {
     console.log("Item updated");
   };
 
+  useEffect(() => {
+    console.log("useEffect");
+    console.log(items);
+  }, [selectedItemId]);
+
   return (
     <div className="modal">
       <div className="modal-content">
