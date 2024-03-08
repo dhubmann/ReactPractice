@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 const OptionsModal = ({ closeOptionsModal, items }) => {
   const [selectedItemId, setSelectedItemId] = useState("");
   const [activateItem, setActivateItem] = useState(false);
+  const [cancelItem, setCancelItem] = useState(false);
 
   const selectItemId = (e) => {
     setSelectedItemId(e.target.value);
@@ -19,6 +20,10 @@ const OptionsModal = ({ closeOptionsModal, items }) => {
     );
     if (selectedItem && selectedItem.status === "ACTIVE") {
       setActivateItem(true);
+      setCancelItem(false);
+    } else if (selectedItem && selectedItem.status === "CANCELLED") {
+      setCancelItem(true);
+      setActivateItem(false);
     } else {
       setActivateItem(false);
     }
@@ -44,7 +49,7 @@ const OptionsModal = ({ closeOptionsModal, items }) => {
         <div className="modal-options">
           <ul>
             <li>
-              <label>Item Status Info</label>
+              <label>Item Status</label>
               {selectedItemId &&
                 items.map((item) =>
                   item.id === parseInt(selectedItemId) ? (
@@ -57,12 +62,18 @@ const OptionsModal = ({ closeOptionsModal, items }) => {
               <input
                 checked={activateItem}
                 onChange={(e) => setActivateItem(e.target.checked)}
+                disabled={cancelItem ? true : false}
                 type="checkbox"
               />
             </li>
             <li>
               <label>Cancel Item</label>
-              <input type="checkbox" />
+              <input
+                checked={cancelItem}
+                onChange={(e) => setCancelItem(e.target.checked)}
+                disabled={activateItem ? true : false}
+                type="checkbox"
+              />
             </li>
             <li>
               <label>Change Name</label>
