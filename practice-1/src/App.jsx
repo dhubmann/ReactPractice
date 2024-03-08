@@ -48,6 +48,7 @@ function App() {
                 <li key={item.id}>
                   {item.name}: €{item.price}
                   <input type="checkbox" disabled={item.status !== "ACTIVE"} />
+                  {item.status === "CANCELLED" ? <span className="cancelled-span">CANCELLED</span> : ""}
                 </li>
               ))}
             </ul>
