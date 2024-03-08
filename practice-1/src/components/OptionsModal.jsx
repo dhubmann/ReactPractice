@@ -14,9 +14,15 @@ const OptionsModal = ({ closeOptionsModal, items }) => {
   };
 
   useEffect(() => {
-    console.log("useEffect");
-    console.log(items);
-  }, [selectedItemId]);
+    const selectedItem = items.find(
+      (item) => item.id === parseInt(selectedItemId)
+    );
+    if (selectedItem && selectedItem.status === "ACTIVE") {
+      setActivateItem(true);
+    } else {
+      setActivateItem(false);
+    }
+  }, [selectedItemId, items]);
 
   return (
     <div className="modal">
@@ -30,7 +36,7 @@ const OptionsModal = ({ closeOptionsModal, items }) => {
             <option value=""></option>
             {items.map((item) => (
               <option key={item.id} value={item.id}>
-                {item.name}: €{item.price} ({item.status})
+                {item.name}: €{item.price}
               </option>
             ))}
           </select>
@@ -38,10 +44,19 @@ const OptionsModal = ({ closeOptionsModal, items }) => {
         <div className="modal-options">
           <ul>
             <li>
+              <label>Item Status Info</label>
+              {selectedItemId &&
+                items.map((item) =>
+                  item.id === parseInt(selectedItemId) ? (
+                    <span key={item.id}>: {item.status}</span>
+                  ) : null
+                )}
+            </li>
+            <li>
               <label>Activate Item</label>
               <input
-                value={activateItem}
-                onChange={(e) => setActivateItem(e.target.value)}
+                checked={activateItem}
+                onChange={(e) => setActivateItem(e.target.checked)}
                 type="checkbox"
               />
             </li>
