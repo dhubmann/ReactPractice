@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const OptionsModal = ({ closeOptionsModal, items }) => {
+const OptionsModal = ({ closeOptionsModal, items, onUpdateItems }) => {
   const [selectedItemId, setSelectedItemId] = useState("");
   const [activateItem, setActivateItem] = useState(false);
   const [cancelItem, setCancelItem] = useState(false);
@@ -11,6 +11,15 @@ const OptionsModal = ({ closeOptionsModal, items }) => {
   };
 
   const updateItem = () => {
+    // const updatedItem = items.map((item) => {
+    //   if (item.id === parseInt(selectItemId)) {
+    //     return {
+    //       ...item,
+    //       status: activateItem ? "ACTIVATE" : item.status,
+    //     };
+    //   }
+    // });
+    // onUpdateItems(updatedItem);
     console.log("Item updated");
   };
 
@@ -74,14 +83,6 @@ const OptionsModal = ({ closeOptionsModal, items }) => {
                 disabled={activateItem ? true : false}
                 type="checkbox"
               />
-            </li>
-            <li>
-              <label>Change Name</label>
-              <input type="checkbox" />
-            </li>
-            <li>
-              <label>Change Price</label>
-              <input type="checkbox" />
             </li>
           </ul>
         </div>

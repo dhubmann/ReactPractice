@@ -1,9 +1,9 @@
 import { useState } from "react";
-import "./App.css";
+import "./styles/App.css";
 import OptionsModal from "./components/OptionsModal";
 
 function App() {
-  const items = [
+  const itemsData = [
     {
       id: 1,
       status: "ACTIVE",
@@ -27,6 +27,7 @@ function App() {
     },
   ];
 
+  const [items, setItems] = useState(itemsData);
   const [isShownOptionsModal, setIsShownOptionsModal] = useState(false);
 
   const showOptionsModal = () => {
@@ -35,6 +36,11 @@ function App() {
 
   const closeOptionsModal = () => {
     setIsShownOptionsModal(false);
+  };
+
+  const handleUpdateItems = (updatedItems) => {
+    setItems(updatedItems);
+    console.log("update items");
   };
 
   return (
@@ -48,7 +54,11 @@ function App() {
                 <li key={item.id}>
                   {item.name}: €{item.price}
                   <input type="checkbox" disabled={item.status !== "ACTIVE"} />
-                  {item.status === "CANCELLED" ? <span className="cancelled-span">CANCELLED</span> : ""}
+                  {item.status === "CANCELLED" ? (
+                    <span className="cancelled-span">CANCELLED</span>
+                  ) : (
+                    ""
+                  )}
                 </li>
               ))}
             </ul>
@@ -59,7 +69,11 @@ function App() {
         </div>
       )}
       {isShownOptionsModal && (
-        <OptionsModal closeOptionsModal={closeOptionsModal} items={items} />
+        <OptionsModal
+          closeOptionsModal={closeOptionsModal}
+          items={items}
+          onUpdateItems={handleUpdateItems}
+        />
       )}
     </>
   );
