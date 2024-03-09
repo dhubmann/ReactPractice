@@ -23,11 +23,20 @@ const EditStatusModal = ({ closeEditStatusModal, items, onUpdateItems }) => {
 
   const updateItem = () => {
     if (selectedItemId) {
-      const selectedItem = items.find(
-        (item) => item.id === parseInt(selectedItemId)
-      );
+      const updatedItems = items.map((item) => {
+        if (item.id === parseInt(selectedItemId)) {
+          if (activateItem && !cancelItem) {
+            return { ...item, status: "ACTIVE" };
+          } else if (cancelItem && !activateItem) {
+            return { ...item, status: "CANCELLED" };
+          }
+        } else {
+          return item;
+        }
+      });
+      onUpdateItems(updatedItems);
+      console.log("Item updated");
     }
-    console.log("Item updated");
   };
 
   // Helper function to set checkbox by default depending on item's status
