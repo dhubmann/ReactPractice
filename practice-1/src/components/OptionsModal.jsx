@@ -42,7 +42,7 @@ const OptionsModal = ({ closeOptionsModal, items, onUpdateItems }) => {
     <div className="modal">
       <div className="modal-content">
         <div className="modal-header">
-          <h2>Options</h2>
+          <h2>Edit Status</h2>
         </div>
         <div className="items-dropdown">
           <label htmlFor="items">Choose an item: </label>
@@ -88,7 +88,7 @@ const OptionsModal = ({ closeOptionsModal, items, onUpdateItems }) => {
         </div>
         <div className="modal-footer">
           <button onClick={updateItem}>Save Changes</button>
-          <button onClick={closeOptionsModal}>Close Options</button>
+          <button onClick={closeOptionsModal}>Close</button>
         </div>
       </div>
     </div>

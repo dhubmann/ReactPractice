@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./styles/App.css";
-import OptionsModal from "./components/OptionsModal";
+// import OptionsModal from "./components/OptionsModal";
+import EditStatusModal from "./components/EditStatusModal";
 
 function App() {
   const itemsData = [
@@ -28,14 +29,14 @@ function App() {
   ];
 
   const [items, setItems] = useState(itemsData);
-  const [isShownOptionsModal, setIsShownOptionsModal] = useState(false);
+  const [isShownEditStatusModal, setIsShownEditStatusModal] = useState(false);
 
-  const showOptionsModal = () => {
-    setIsShownOptionsModal(true);
+  const showEditStatusModal = () => {
+    setIsShownEditStatusModal(true);
   };
 
-  const closeOptionsModal = () => {
-    setIsShownOptionsModal(false);
+  const closeEditStatusModal = () => {
+    setIsShownEditStatusModal(false);
   };
 
   const handleUpdateItems = (updatedItems) => {
@@ -45,7 +46,7 @@ function App() {
 
   return (
     <>
-      {!isShownOptionsModal && (
+      {!isShownEditStatusModal && (
         <div className="container">
           <div className="overview-container">
             <h2>Item Overview</h2>
@@ -64,13 +65,14 @@ function App() {
             </ul>
           </div>
           <div className="options-container">
-            <button onClick={showOptionsModal}>Options</button>
+            <h3>Options</h3>
+            <button onClick={showEditStatusModal}>Edit Status</button>
           </div>
         </div>
       )}
-      {isShownOptionsModal && (
-        <OptionsModal
-          closeOptionsModal={closeOptionsModal}
+      {isShownEditStatusModal && (
+        <EditStatusModal
+          closeEditStatusModal={closeEditStatusModal}
           items={items}
           onUpdateItems={handleUpdateItems}
         />
