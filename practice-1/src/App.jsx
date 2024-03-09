@@ -41,7 +41,7 @@ function App() {
 
   const handleUpdateItems = (updatedItems) => {
     setItems(updatedItems);
-    console.log("update items");
+    // console.log("update items");
   };
 
   return (

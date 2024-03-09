@@ -1,0 +1,32 @@
+.modal-content {
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border: 0.2rem solid lightblue;
+}
+
+.modal-options ul {
+  list-style: none;
+  padding: 0;
+  margin-left: 0;
+}
+
+.modal-options li {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.modal-options li,
+input {
+  padding: 0.2rem 0rem 0.2rem 0rem;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-content button:disabled {
+  background-color: white;
+  border: 0.5px solid lightgray;
+}

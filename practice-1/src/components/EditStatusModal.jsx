@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "../styles/components/edit_status_modal.css";
 
 const EditStatusModal = ({ closeEditStatusModal, items, onUpdateItems }) => {
   const [selectedItemId, setSelectedItemId] = useState("");
@@ -8,7 +9,7 @@ const EditStatusModal = ({ closeEditStatusModal, items, onUpdateItems }) => {
 
   const selectItemId = (e) => {
     setSelectedItemId(e.target.value);
-    console.log("Selected Id: ", e.target.value);
+    // console.log("Selected Id: ", e.target.value);
   };
 
   const handleCheckboxChange = (e) => {
@@ -35,7 +36,7 @@ const EditStatusModal = ({ closeEditStatusModal, items, onUpdateItems }) => {
         }
       });
       onUpdateItems(updatedItems);
-      console.log("Item updated");
+      // console.log("Item updated");
     }
   };
 
@@ -67,11 +68,6 @@ const EditStatusModal = ({ closeEditStatusModal, items, onUpdateItems }) => {
 
   useEffect(() => {
     setSaveButtonDisabled(!selectedItemId || !(activateItem || cancelItem));
-    console.log("use effect", {
-      "selected item id": selectedItemId,
-      "activate item bool": activateItem,
-      "cancel item bool": cancelItem,
-    });
   }, [selectedItemId, activateItem, cancelItem]);
 
   return (
@@ -98,7 +94,7 @@ const EditStatusModal = ({ closeEditStatusModal, items, onUpdateItems }) => {
               {selectedItemId &&
                 items.map((item) =>
                   item.id === parseInt(selectedItemId) ? (
-                    <span key={item.id}>: {item.status}</span>
+                    <span key={item.id}>{item.status}</span>
                   ) : null
                 )}
             </li>
