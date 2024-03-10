@@ -1,3 +1,11 @@
+# Description
+
+This is a test project with the main goal to practice React.
+
+# Current Status
+
+(09.03.2024) I have implemented an overview window displaying a list of items. Below the Edit Status button opens a modal where the user can select one of the listed items and change the status of the item.
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
