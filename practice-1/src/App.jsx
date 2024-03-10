@@ -28,16 +28,37 @@ function App() {
     },
   ];
 
+  const modals = {
+    newItemModal: false,
+    editStatusModal: false,
+    otherModals: false,
+  };
+
   const [items, setItems] = useState(itemsData);
-  const [isShownEditStatusModal, setIsShownEditStatusModal] = useState(false);
+  const [modalState, setModalState] = useState(modals);
+  // const [isShownEditStatusModal, setIsShownEditStatusModal] = useState(false);
 
-  const showEditStatusModal = () => {
-    setIsShownEditStatusModal(true);
+  const showModal = (modal) => {
+    setModalState((prevState) => ({
+      ...prevState,
+      [modal]: true,
+    }));
   };
 
-  const closeEditStatusModal = () => {
-    setIsShownEditStatusModal(false);
+  const closeModal = (modal) => {
+    setModalState((prevState) => ({
+      ...prevState,
+      [modal]: false,
+    }));
   };
+
+  // const showEditStatusModal = () => {
+  //   setIsShownEditStatusModal(true);
+  // };
+
+  // const closeEditStatusModal = () => {
+  //   setIsShownEditStatusModal(false);
+  // };
 
   const handleUpdateItems = (updatedItems) => {
     setItems(updatedItems);
@@ -46,7 +67,7 @@ function App() {
 
   return (
     <>
-      {!isShownEditStatusModal && (
+      {!modalState.editStatusModal && (
         <div className="container">
           <div className="overview-container">
             <h2>Item Overview</h2>
@@ -66,13 +87,16 @@ function App() {
           </div>
           <div className="options-container">
             <h3>Options</h3>
-            <button onClick={showEditStatusModal}>Edit Status</button>
+            <button onClick={() => showModal("newItemModal")}>New Item</button>
+            <button onClick={() => showModal("editStatusModal")}>
+              Edit Status
+            </button>
           </div>
         </div>
       )}
-      {isShownEditStatusModal && (
+      {modalState.editStatusModal && (
         <EditStatusModal
-          closeEditStatusModal={closeEditStatusModal}
+          closeEditStatusModal={() => closeModal("editStatusModal")}
           items={items}
           onUpdateItems={handleUpdateItems}
         />
