@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./styles/App.css";
 // import OptionsModal from "./components/OptionsModal";
 import EditStatusModal from "./components/EditStatusModal";
+import NewItemModal from "./components/NewItemModal";
 
 function App() {
   const itemsData = [
@@ -36,7 +37,6 @@ function App() {
 
   const [items, setItems] = useState(itemsData);
   const [modalState, setModalState] = useState(modals);
-  // const [isShownEditStatusModal, setIsShownEditStatusModal] = useState(false);
 
   const showModal = (modal) => {
     setModalState((prevState) => ({
@@ -52,14 +52,6 @@ function App() {
     }));
   };
 
-  // const showEditStatusModal = () => {
-  //   setIsShownEditStatusModal(true);
-  // };
-
-  // const closeEditStatusModal = () => {
-  //   setIsShownEditStatusModal(false);
-  // };
-
   const handleUpdateItems = (updatedItems) => {
     setItems(updatedItems);
     // console.log("update items");
@@ -67,7 +59,7 @@ function App() {
 
   return (
     <>
-      {!modalState.editStatusModal && (
+      {!Object.values(modalState).some((modal) => modal) && (
         <div className="container">
           <div className="overview-container">
             <h2>Item Overview</h2>
@@ -93,6 +85,13 @@ function App() {
             </button>
           </div>
         </div>
+      )}
+      {modalState.newItemModal && (
+        <NewItemModal
+          closeNewItemModal={() => closeModal("newItemModal")}
+          items={items}
+          onUpdateItems={handleUpdateItems}
+        />
       )}
       {modalState.editStatusModal && (
         <EditStatusModal

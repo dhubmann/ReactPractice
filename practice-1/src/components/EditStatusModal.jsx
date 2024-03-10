@@ -99,8 +99,9 @@ const EditStatusModal = ({ closeEditStatusModal, items, onUpdateItems }) => {
                 )}
             </li>
             <li>
-              <label>Activate Item</label>
+              <label htmlFor="activate">Activate Item</label>
               <input
+                id="activate"
                 name="activate"
                 checked={activateItem}
                 onChange={handleCheckboxChange}
@@ -109,8 +110,9 @@ const EditStatusModal = ({ closeEditStatusModal, items, onUpdateItems }) => {
               />
             </li>
             <li>
-              <label>Cancel Item</label>
+              <label htmlFor="cancel">Cancel Item</label>
               <input
+                id="cancel"
                 name="cancel"
                 checked={cancelItem}
                 onChange={handleCheckboxChange}
