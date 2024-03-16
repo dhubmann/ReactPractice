@@ -23,11 +23,6 @@
 nav {
   display: block;
   text-align: center;
-  padding-top: 10rem;
-
-  svg {
-    margin: 0 0 0 2rem;
-  }
 
   a {
     border: 0.5px solid black;
@@ -37,10 +32,16 @@ nav {
     display: block;
     line-height: 6.5rem;
     text-decoration: none;
+  }
 
-    &:hover {
-      color: black;
-      transition: all 0.35s ease-out;
-    }
+  svg {
+    margin: 0 0 0 2rem;
+    color: gray;
+  }
+
+  a:hover,
+  a:hover svg {
+    color: black;
+    transition: all 0.35s ease-out;
   }
 }
