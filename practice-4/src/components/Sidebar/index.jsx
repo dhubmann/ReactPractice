@@ -7,6 +7,7 @@ import {
   faHome,
   faWrench,
 } from "@fortawesome/free-solid-svg-icons";
+import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 
 const Sidebar = () => {
   return (
@@ -17,17 +18,29 @@ const Sidebar = () => {
       <nav>
         <NavLink exact="true" activclassname="active" to="/">
           <label>Home</label>
-          <FontAwesomeIcon icon={faHome} color="black" />
+          <FontAwesomeIcon icon={faHome} />
         </NavLink>
         <NavLink exact="true" activclassname="active" to="/edit_items">
           <label>Edit Items</label>
-          <FontAwesomeIcon icon={faWrench} color="black" />
+          <FontAwesomeIcon icon={faWrench} />
         </NavLink>
         <NavLink exact="true" activclassname="active" to="/contact">
           <label>Contact</label>
-          <FontAwesomeIcon icon={faEnvelope} color="black" />
+          <FontAwesomeIcon icon={faEnvelope} />
         </NavLink>
       </nav>
+      <div className="nav-bar-footer">
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://www.linkedin.com/in/daniel-hubmann-13585b268/"
+        >
+          <FontAwesomeIcon icon={faLinkedin} />
+        </a>
+        <a target="_blank" rel="noreferrer" href="https://github.com/dhubmann">
+          <FontAwesomeIcon icon={faGithub} />
+        </a>
+      </div>
     </div>
   );
 };

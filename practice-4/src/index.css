@@ -4,9 +4,7 @@ html {
 
 body {
   margin: 0;
-  font-family: "Helvetica Neue", "Arial";
-  font-size: 20px;
-  font-weight: 300;
+  font: 300 20px/1.4 "Helvetica Neue", "Arial";
   color: black;
   background-color: aliceblue;
   display: block;
