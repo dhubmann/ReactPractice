@@ -1,8 +1,56 @@
 .container {
   position: absolute;
-  left: 50%;
+  left: 25%;
 
   ul {
     list-style: none;
   }
+}
+
+table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+}
+
+/* Leave font weight of headings as they are */
+table tr:not(:first-child) th {
+  font-weight: lighter;
+}
+
+/* Styles for table headings */
+th {
+  white-space: nowrap;
+  padding: 2rem 4rem;
+  // text-align: left;
+}
+
+/* Styles for table cells */
+td {
+  padding: 8px;
+}
+
+/* Styles for alternate rows */
+tr:nth-child(even) {
+  background-color: rgb(230, 230, 230);
+}
+
+/* Styles for table heading of the first column */
+th:first-child {
+  border-top-left-radius: 6px;
+}
+
+/* Styles for table heading of the last column */
+th:last-child {
+  border-top-right-radius: 6px;
+}
+
+/* Styles for table cells of the first column */
+td:first-child {
+  border-bottom-left-radius: 6px;
+}
+
+/* Styles for table cells of the last column */
+td:last-child {
+  border-bottom-right-radius: 6px;
 }
