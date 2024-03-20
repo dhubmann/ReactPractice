@@ -1,2 +1,2 @@
 # ReactPractice
-Project to practice react
+Various projects to practice react
