@@ -1,5 +1,5 @@
 .nav-bar {
-  background-color: lightblue;
+  background-color: rgb(193, 224, 235);
   width: 20%;
   height: 100%;
   position: absolute;
@@ -12,11 +12,15 @@
     padding: 5rem 0rem 5rem 0rem;
     margin: auto;
     text-align: center;
-    background-color: rgb(193, 224, 235);
   }
 
   a {
     text-decoration: none;
+    background-color: lightblue;
+  }
+
+  nav label {
+    cursor: pointer;
   }
 
   .nav-bar-footer {
@@ -28,12 +32,12 @@
     list-style: none;
     text-align: center;
     margin: 0;
-    background-color: rgb(193, 224, 235);
 
     a {
       padding: 2rem;
       line-height: 1rem;
       color: black;
+      background-color: transparent;
     }
 
     svg {

@@ -16,15 +16,30 @@ const Sidebar = () => {
         <h3>Company Name</h3>
       </Link>
       <nav>
-        <NavLink exact="true" activclassname="active" to="/">
+        <NavLink
+          exact="true"
+          activeclassname="active"
+          className="overview-link"
+          to="/"
+        >
           <label>Overview</label>
           <FontAwesomeIcon icon={faList} />
         </NavLink>
-        <NavLink exact="true" activclassname="active" to="/edit_items">
+        <NavLink
+          exact="true"
+          activeclassname="active"
+          className="edit-items-link"
+          to="/edit_items"
+        >
           <label>Edit Items</label>
           <FontAwesomeIcon icon={faWrench} />
         </NavLink>
-        <NavLink exact="true" activclassname="active" to="/contact">
+        <NavLink
+          exact="true"
+          activeclassname="active"
+          className="contact-link"
+          to="/contact"
+        >
           <label>Contact</label>
           <FontAwesomeIcon icon={faEnvelope} />
         </NavLink>

@@ -1,6 +1,8 @@
 .container {
-  height: 100%;
-  position: relative;
+  position: absolute;
   left: 50%;
-  right: 50%;
+
+  ul {
+    list-style: none;
+  }
 }

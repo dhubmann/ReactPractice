@@ -1,13 +1,15 @@
 import "./index.scss";
 import React from "react";
-import Overview from "../Overview";
-import Sidebar from "../Sidebar";
+import Sidebar from "../Sidebar/index";
+import { Outlet } from "react-router-dom";
 
 const Layout = () => {
   return (
-    <div>
-      <Overview />
+    <div className="layout">
       <Sidebar />
+      <div className="page">
+        <Outlet />
+      </div>
     </div>
   );
 };
