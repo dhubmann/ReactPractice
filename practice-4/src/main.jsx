@@ -4,6 +4,8 @@ import ReactDOM from "react-dom/client";
 import Layout from "./components/Layout/index.jsx";
 import ErrorPage from "./error-page.jsx";
 import Overview from "./components/Overview/index.jsx";
+import LoadItems from "./components/LoadItems/index.jsx";
+import EditItems from "./components/EditItems/index.jsx";
 import Contact from "./components/Contact/index.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -18,7 +20,12 @@ const router = createBrowserRouter([
         element: <Overview />,
       },
       {
-        // path: "edit_items",
+        path: "load_items",
+        element: <LoadItems />,
+      },
+      {
+        path: "edit_items",
+        element: <EditItems />,
       },
       {
         path: "contact",

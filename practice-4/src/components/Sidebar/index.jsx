@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEnvelope,
   faList,
+  faSpinner,
   faWrench,
 } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -24,6 +25,15 @@ const Sidebar = () => {
         >
           <label>Overview</label>
           <FontAwesomeIcon icon={faList} />
+        </NavLink>
+        <NavLink
+          exact="true"
+          activeclassname="active"
+          className="load-items-link"
+          to="/load_items"
+        >
+          <label>Load Items</label>
+          <FontAwesomeIcon icon={faSpinner} />
         </NavLink>
         <NavLink
           exact="true"
