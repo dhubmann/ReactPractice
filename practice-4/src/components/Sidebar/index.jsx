@@ -14,7 +14,7 @@ const Sidebar = () => {
   return (
     <div className="nav-bar">
       <Link className="company-name" to="/">
-        <h3>Company Name</h3>
+        <h3>Items Company</h3>
       </Link>
       <nav>
         <NavLink
